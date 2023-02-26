@@ -1,4 +1,5 @@
 import { Component } from 'react';
+import PropTypes from 'prop-types';
 import MarvelService from '../../services/MarvelService'
 import Spinner from '../spinner/Spinner';
 import Skeleton from '../skeleton/Skeleton';
@@ -82,7 +83,7 @@ class CharInfo extends Component {
 }
 
 const View = ({ char }) => {
-    const { name, description, thumbnail, homepage, wiki, comics } = char;
+    const { name, description, thumbnail, homepage, wiki, comics, id } = char;
 
     let imgStyle = { 'objectFit': 'cover' };
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
@@ -115,7 +116,7 @@ const View = ({ char }) => {
                     comics.map((item, i) => {
                         if (i > 9) return
                         return (
-                            <li key={i} className="char__comics-item">
+                            <li key={id} className="char__comics-item">
                                 {item.name}
                             </li>
                         )
@@ -126,4 +127,7 @@ const View = ({ char }) => {
     )
 }
 
+CharInfo.propTypes = {
+    charId: PropTypes.number
+}
 export default CharInfo;
