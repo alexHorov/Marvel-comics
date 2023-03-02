@@ -1,16 +1,7 @@
-import { useState } from "react";
-import { BrowserRouter, Route, Switch } from 'react-router-dom';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 import AppHeader from "../appHeader/AppHeader";
-import MainPage from "../pages/MainPage";
-import ComicsPage from "../pages/ComicsPage";
+import { MainPage, ComicsPage, Page404, SingleComicPage } from '../pages'
 
-import RandomChar from "../randomChar/RandomChar";
-import CharList from "../charList/CharList";
-import CharInfo from "../charInfo/CharInfo";
-import ErrorBoundary from "../errorBoundary/ErrorBoundary";
-import AppBanner from "../appBanner/AppBanner"
-import ComicsList from "../comicsList/ComicsList";
-// import SingleComic from "../singleComic/SingleComic";
 import TestComponent from "../testComponent/TestComponent";
 
 
@@ -23,15 +14,12 @@ const App = () => {
                 {/* <TestComponent /> */}
                 <AppHeader />
                 <main>
-                    <Switch>
-                        <Route exact path="/">
-                            <MainPage />
-                        </Route>
-
-                        <Route exact path="/comics">
-                            <ComicsPage />
-                        </Route>
-                    </Switch>
+                    <Routes >
+                        <Route path="/" element={<MainPage />} />
+                        <Route path="/comics" element={<ComicsPage />} />
+                        <Route path="/comics/:comicId" element={<SingleComicPage />} />
+                        <Route path="*" element={<Page404 />} />
+                    </Routes>
 
                 </main>
             </div>
