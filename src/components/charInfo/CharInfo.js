@@ -2,8 +2,8 @@ import { useState, useEffect } from 'react';
 import PropTypes from 'prop-types';
 import useMarvelService from '../../services/MarvelService'
 import Spinner from '../spinner/Spinner';
-import Skeleton from '../skeleton/Skeleton';
 import ErrorMessage from '../errorMessage/ErrorMessage';
+import Skeleton from '../skeleton/Skeleton';
 import './charInfo.scss';
 
 
@@ -52,6 +52,7 @@ const CharInfo = (props) => {
 const View = ({ char }) => {
     const { name, description, thumbnail, homepage, wiki, comics, id } = char;
 
+
     let imgStyle = { 'objectFit': 'cover' };
     if (thumbnail === 'http://i.annihil.us/u/prod/marvel/i/mg/b/40/image_not_available.jpg') {
         imgStyle = { 'objectFit': 'contain' };
@@ -81,11 +82,14 @@ const View = ({ char }) => {
                 {comics.length > 0 ? null : 'There is no comics with this character'}
                 {
                     comics.map((item, i) => {
+
                         if (i > 9) return
                         return (
+
                             <li key={id} className="char__comics-item">
                                 {item.name}
                             </li>
+
                         )
                     })
                 }
