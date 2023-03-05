@@ -48,6 +48,7 @@ const CharList = (props) => {
         // и не факт, что мы выиграем по оптимизации за счет бОльшего кол-ва элементов
 
         // По возможности, не злоупотребляйте рефами, только в крайних случаях
+
         itemRefs.current.forEach(item => item.classList.remove('char__item_selected'));
         itemRefs.current[id].classList.add('char__item_selected');
         itemRefs.current[id].focus();

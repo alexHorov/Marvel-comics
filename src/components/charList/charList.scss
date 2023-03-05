@@ -32,11 +32,6 @@
             transform: translate(-15px, -15px);
         }
 
-        &_selected {
-            box-shadow: 0 5px 20px $main-color;
-            transform: translateY(-8px);
-        }
-
         &-enter {
             opacity: 0;
             transform: scale(0.9)
@@ -57,6 +52,11 @@
             opacity: 0;
             transform: scale(0.9);
             transition: all 500ms ease-in;
+        }
+
+        &_selected {
+            box-shadow: 0 5px 20px $main-color;
+            transform: translateY(-8px);
         }
     }
 

@@ -1,4 +1,4 @@
-@import '../../style/variables.scss';
+@import '../../../style/variables.scss';
 
 .single-comic {
     margin-top: 50px;
@@ -41,5 +41,29 @@
         &:hover {
             color: $main-color;
         }
+    }
+
+    &-enter {
+        opacity: 0;
+        transform: scale(0.9)
+    }
+
+    &-enter-active {
+        opacity: 1;
+        visibility: visible;
+        transform: translateX(0);
+        transition: all 500ms ease-in;
+    }
+
+    &-exit {
+        opacity: 1;
+        transform: translateX(0);
+    }
+
+    &-exit-active {
+        opacity: 0;
+        visibility: hidden;
+        transform: scale(0.9);
+        transition: all 500ms ease-in;
     }
 }
