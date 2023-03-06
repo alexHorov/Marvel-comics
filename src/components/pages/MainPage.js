@@ -15,6 +15,8 @@ const MainPage = () => {
     const onCharSelected = (id) => {
         setSelectedChar(id)
     }
+
+    console.log('mp')
     return (
         <>
             <Helmet>
